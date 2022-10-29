@@ -13,9 +13,9 @@ function TextInput() {
     const [num, setNum] = useState<numI>({num: 0});
     let arr = new Array("");
 
-    function fillArr(num: number, value: string): any {
+    const fillArr = (num: number, value: string): any => {
         arr = [...Array(num)].map(() => value);
-    }
+    };
 
     const clickHanderText = (stateSetter: Dispatch<textI>, e: any) => {
         stateSetter({value: e.target.value});
@@ -31,14 +31,14 @@ function TextInput() {
     return (
         <div>
             <p>Input text: </p>
-            <input onChange={(e) => clickHanderText(setText, e)}/>
+            <input onChange={(e: React.FormEvent<HTMLInputElement>) => clickHanderText(setText, e)}/>
             <br/>
             <p>Input num: </p>
-            <input onChange={(e) => clickHanderNum(setNum, e)}/>
+            <input onChange={(e: React.FormEvent<HTMLInputElement>) => clickHanderNum(setNum, e)}/>
             <br/>
             <br/>
+            <p>{fillArr(num.num, text.value)}</p>
             <div>
-                {fillArr(num.num, text.value)}
                 {arr.map((name: string, id: number): JSX.Element => {
                     return <p key={id}>{name}</p>;
                 })}
