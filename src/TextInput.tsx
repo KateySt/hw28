@@ -17,11 +17,11 @@ function TextInput() {
         arr = [...Array(num)].map(() => value);
     };
 
-    const clickHanderText = (stateSetter: Dispatch<textI>, e: any) => {
+    const clickHandlerText = (stateSetter: Dispatch<textI>, e: any) => {
         stateSetter({value: e.target.value});
     }
 
-    const clickHanderNum = (stateSetter: Dispatch<numI>, e: any) => {
+    const clickHandlerNum = (stateSetter: Dispatch<numI>, e: any) => {
         if(e.target.value==='')
             stateSetter({num: 0});
         else
@@ -31,10 +31,10 @@ function TextInput() {
     return (
         <div>
             <p>Input text: </p>
-            <input onChange={(e: React.FormEvent<HTMLInputElement>) => clickHanderText(setText, e)}/>
+            <input onChange={(e: React.FormEvent<HTMLInputElement>) => clickHandlerText(setText, e)}/>
             <br/>
             <p>Input num: </p>
-            <input onChange={(e: React.FormEvent<HTMLInputElement>) => clickHanderNum(setNum, e)}/>
+            <input onChange={(e: React.FormEvent<HTMLInputElement>) => clickHandlerNum(setNum, e)}/>
             <br/>
             <br/>
             <p>{fillArr(num.num, text.value)}</p>
