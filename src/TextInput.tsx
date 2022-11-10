@@ -8,7 +8,7 @@ interface numI {
     num: number;
 }
 
-function TextInput() {
+function TextInput():JSX.Element{
     const [text, setText] = useState<textI>({value: ''});
     const [num, setNum] = useState<numI>({num: 0});
     let arr = new Array("");
